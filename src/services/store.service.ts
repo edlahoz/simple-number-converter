@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { utilFormatNumber } from '../utils/financial.util';
+import { utilFormatFinancialNumber } from '../utils/financial.util';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,7 @@ export class StoreService {
 
   getFinancialNumber(formatted: boolean = false): string {
     return formatted
-      ? utilFormatNumber(this.financialNumber)
+      ? utilFormatFinancialNumber(this.financialNumber)
       : this.financialNumber;
   }
 }

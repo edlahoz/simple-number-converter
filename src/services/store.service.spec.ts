@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { StoreService } from './store.service';
-import { utilFormatNumber } from '../utils/financial.util';
+import { utilFormatFinancialNumber } from '../utils/financial.util';
 
 describe('StoreService', () => {
   let service: StoreService;
@@ -31,7 +31,7 @@ describe('StoreService', () => {
 
     it('should return the formatted financial number when formatted is true', () => {
       const testValue = '250k';
-      const formattedValue = utilFormatNumber(testValue);
+      const formattedValue = utilFormatFinancialNumber(testValue);
       service.setFinancialNumber(testValue);
       expect(service.getFinancialNumber(true)).toBe(formattedValue);
     });
