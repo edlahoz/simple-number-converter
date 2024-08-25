@@ -29,20 +29,20 @@ export function utilFormatFinancialNumber(value: string): string {
   if (lastChar.match(/[0-9]/) !== null) {
     return utilFormatNumber(value);
   }
-  let rawNumber = value.slice(0, -1);
+  let rawNumber = Number(value.slice(0, -1));
   switch (lastChar) {
     case 'k':
     case 'K':
-      rawNumber = `${rawNumber}000`;
+      rawNumber = rawNumber * 1000;
       break;
     case 'm':
     case 'M':
-      rawNumber = `${rawNumber}000000`;
+      rawNumber = rawNumber * 1000000;
       break;
     case 'b':
     case 'B':
-      rawNumber = `${rawNumber}000000000`;
+      rawNumber = rawNumber * 1000000000;
       break;
   }
-  return utilFormatNumber(rawNumber);
+  return utilFormatNumber(String(rawNumber));
 }
